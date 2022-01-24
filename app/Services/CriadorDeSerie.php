@@ -10,12 +10,16 @@ class CriadorDeSerie
     public function criarSerie(
         string $nomeSerie,
         int $qtdTemporadas,
-        int $epPorTemporada
+        int $epPorTemporada,
+        ?string $capa
     ): Serie
     {
         // BeginTransaction Laravel
         DB::beginTransaction();
-        $serie = Serie::create(['nome' => $nomeSerie]);
+        $serie = Serie::create([
+            'nome' => $nomeSerie,
+            'capa' => $capa
+        ]);
         $this->criarTemporadas($qtdTemporadas, $epPorTemporada, $serie);
         DB::commit();
 
