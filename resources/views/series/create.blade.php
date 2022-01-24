@@ -7,7 +7,7 @@
 @section('conteudo')
 @include('erros', ['errors', $errors])
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col col-8">
@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col col-12">
             <label for="nome">Capa</label>
-            <input type="text" class="form-control" name="capa" id="capa">
+            <input type="file" class="form-control" name="capa" id="capa">
         </div>
     </div>
 
