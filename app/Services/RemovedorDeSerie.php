@@ -6,6 +6,7 @@ use Storage;
 use App\Events\SerieApagada;
 use Illuminate\Support\Facades\DB;
 use App\{Serie, Temporada, Episodio};
+use App\Jobs\ExcluirCapaSerie;
 
 class RemovedorDeSerie
 {
@@ -23,6 +24,7 @@ class RemovedorDeSerie
 
             $evento = new SerieApagada($serieObj);
             event($evento);
+            ExcluirCapaSerie::dispatch($serieObj);
         });
 
         return $nomeSerie;
