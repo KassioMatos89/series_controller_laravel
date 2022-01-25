@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Serie;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -16,7 +15,7 @@ class SerieApagada
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var Serie
+     * @var object
      */
     public $serie;
 
@@ -25,7 +24,7 @@ class SerieApagada
      *
      * @return void
      */
-    public function __construct(Serie $serie)
+    public function __construct(object $serie)
     {
         $this->serie = $serie;
     }

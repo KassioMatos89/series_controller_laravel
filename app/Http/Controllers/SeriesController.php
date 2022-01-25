@@ -56,8 +56,6 @@ class SeriesController extends Controller
 
         event($eventoNovaSerie);
 
-
-
         $request->session()
             ->flash(
                 'mensagem',
